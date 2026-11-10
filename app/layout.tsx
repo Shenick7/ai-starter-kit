@@ -12,8 +12,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME}: which AI tool should I use?`, template: `%s | ${SITE_NAME}` },
   description: "Beginner-friendly AI tools sorted by task, with plain-English how-to-start steps and honest answers on whether the free plan is enough.",
+  authors: [{ name: "Shenick Jain", url: "https://x.com/Shenick_7" }],
+  creator: "Shenick Jain",
   openGraph: { type: "website", siteName: SITE_NAME, url: SITE_URL },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", creator: "@Shenick_7" },
   alternates: { canonical: "/" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#4f46e5" };
@@ -38,6 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <footer className="ft"><div className="wrap">
           <div>© {new Date().getFullYear()} {SITE_NAME}. Free-plan info is checked against each tool's own pricing page; plans change, so always confirm before paying.</div>
           <div className="row"><Link href="/learn">Learn</Link><Link href="/submit">Submit a tool</Link><Link href="/sponsor">Advertise</Link></div>
+          <div style={{ flexBasis: "100%", fontSize: 13 }}>A Shenick Jain product · <a href="https://x.com/Shenick_7" target="_blank" rel="noopener me">X</a> · <a href="https://instagram.com/shenick7" target="_blank" rel="noopener me">Instagram</a></div>
         </div></footer>
         <Pageview />
       </body>

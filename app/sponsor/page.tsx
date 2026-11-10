@@ -14,6 +14,7 @@ export default async function Sponsor() {
       <div className="prose">
         <h1>Sponsor AI Starter Kit</h1>
         <p className="muted">Our readers are beginners actively choosing which AI tool to try. These numbers come straight from our database and update live. We're new, so they're small and honest.</p>
+        <p className="muted" style={{ fontSize: 14 }}>Built and run by Shenick Jain · <a href="https://x.com/Shenick_7" target="_blank" rel="noopener me">X</a> · <a href="https://instagram.com/shenick7" target="_blank" rel="noopener me">Instagram</a></p>
       </div>
       <div className="stats">
         <div className="stat"><b>{fmt(s.pageviews30d)}</b><span>page views, last 30 days</span></div>
