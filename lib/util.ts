@@ -1,0 +1,28 @@
+import { createHash, timingSafeEqual } from "crypto";
+import { NextRequest } from "next/server";
+
+export const SITE_NAME = "AI Starter Kit";
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")).replace(/\/$/, "");
+export const FEATURED_PRICE_INR = 999;
+export const OWNER_EMAIL = "jainshenick@gmail.com"; // the only address the site may ever notify
+
+export function ipHash(req: NextRequest) {
+  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
+  return createHash("sha256").update(ip + (process.env.ADMIN_TOKEN || "salt")).digest("hex").slice(0, 32);
+}
+
+export function isAdmin(req: NextRequest) {
+  const token = process.env.ADMIN_TOKEN || "";
+  const got = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  if (!token || !got) return false;
+  const a = Buffer.from(token), b = Buffer.from(got);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
+export function clean(v: unknown, max = 500) {
+  return typeof v === "string" ? v.trim().slice(0, max) : "";
+}
+
+export function isHttpUrl(v: string) {
+  try { const u = new URL(v); return u.protocol === "https:" || u.protocol === "http:"; } catch { return false; }
+}
