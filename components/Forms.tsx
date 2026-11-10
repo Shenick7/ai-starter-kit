@@ -61,6 +61,20 @@ export function SubmitToolForm({ categories }: { categories: { slug: string; lab
   );
 }
 
+export function ContactForm() {
+  const { s, onSubmit } = useForm("/api/contact", "Thanks! Your message is on its way. I'll reply by email.");
+  return (
+    <form className="f" onSubmit={onSubmit}>
+      <label>Name<input name="name" required maxLength={100} autoComplete="name" /></label>
+      <label>Email<input name="email" type="email" required maxLength={254} autoComplete="email" /></label>
+      <label>Message<textarea name="message" required minLength={5} maxLength={5000} rows={5} /></label>
+      <Hp />
+      <button className="btn" disabled={s.kind === "busy"}>{s.kind === "busy" ? "Sending…" : "Send message"}</button>
+      <Status s={s} />
+    </form>
+  );
+}
+
 export function InquiryForm() {
   const { s, onSubmit } = useForm("/api/inquiry", "Thanks! We'll reply by email within 2 working days.");
   return (

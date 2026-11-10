@@ -36,6 +36,9 @@ create table if not exists sponsor_inquiries (
   id serial primary key, name text not null, email text not null, company text, tool_url text, slot text, message text,
   ip_hash text, created_at timestamptz not null default now());
 create table if not exists errors (id bigserial primary key, location text, message text, created_at timestamptz not null default now());
+create table if not exists messages (
+  id serial primary key, name text not null, email text not null, message text not null,
+  ip_hash text, created_at timestamptz not null default now());
 `;
 
 export async function ready() {

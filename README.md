@@ -10,6 +10,7 @@ Next.js (App Router) + Postgres (Neon free tier via Vercel Marketplace) + Resend
 - `/learn`, `/learn/[slug]`
 - `/submit` → `submissions` table (admin review queue)
 - `/sponsor` live stats from DB + inquiry form → `sponsor_inquiries`
+- `/contact` message form → `messages`, emailed to the owner via Resend
 - `/go/[slug]` logged redirect for every outbound tool/sponsor link
 - `sitemap.xml`, `robots.txt`, `opengraph-image`
 
