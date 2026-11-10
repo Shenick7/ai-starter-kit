@@ -1,6 +1,6 @@
 # AI Starter Kit
 
-Beginner-friendly AI tools sorted by task, with "what it is / how to start in 5 minutes / is the free plan enough" pages, short Learn guides, a weekly newsletter, and a ₹999/month Featured slot.
+Beginner-friendly AI tools sorted by task, with "what it is / how to start in 5 minutes / is the free plan enough" pages, short Learn guides, a weekly newsletter, and a $29/month (about ₹2,700) Featured slot.
 
 Next.js (App Router) + Postgres (Neon free tier via Vercel Marketplace) + Resend.
 
@@ -20,7 +20,7 @@ Tables are created automatically on first request (`lib/db.ts`) and `entries` is
 - `GET /api/admin/queue[?status=pending]`
 - `POST /api/admin/approve` `{ "id": 1, "action": "approve" | "reject", "overrides": { "slug", "tagline", "what", "start": [], "free_plan", "verdict", "verdict_note", "source_url", "categories": [] } }`
 - `GET /api/admin/stats`, `GET /api/admin/searches`
-- `GET /api/admin/sponsors`, `POST /api/admin/sponsors` `{ "slot": "featured"|"bar"|"newsletter", "sponsor_name", "go_slug", "target_url", "headline", "week_start": "YYYY-MM-DD", "week_end": "YYYY-MM-DD", "price_inr": 999 }`
+- `GET /api/admin/sponsors`, `POST /api/admin/sponsors` `{ "slot": "featured"|"bar"|"newsletter", "sponsor_name", "go_slug", "target_url", "headline", "week_start": "YYYY-MM-DD", "week_end": "YYYY-MM-DD", "price_inr": 2700 }`
 
 - `GET /api/admin/rows?table=pageviews|sponsor_clicks|signups|zero_result_searches|errors`
 - `POST /api/admin/delete` `{ "table": "submissions", "ids": [1] }` (remove test rows; seeded tools can't be deleted)

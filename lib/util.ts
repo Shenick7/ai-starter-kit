@@ -3,7 +3,9 @@ import { NextRequest } from "next/server";
 
 export const SITE_NAME = "AI Starter Kit";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")).replace(/\/$/, "");
-export const FEATURED_PRICE_INR = 999;
+export const FEATURED_PRICE_USD = 29;
+export const FEATURED_PRICE_INR = 2700; // approx $29 at ~93.9 INR/USD on 2026-11-10, rounded
+export const FEATURED_PRICE_LABEL = "$29/month (about ₹2,700)";
 export const OWNER_EMAIL = "jainshenick@gmail.com"; // the only address the site may ever notify
 
 export function ipHash(req: NextRequest) {

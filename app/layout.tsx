@@ -4,7 +4,7 @@ import "./globals.css";
 import SponsorBar from "@/components/SponsorBar";
 import Pageview from "@/components/Pageview";
 import { activeSponsor } from "@/lib/db";
-import { SITE_NAME, SITE_URL, FEATURED_PRICE_INR } from "@/lib/util";
+import { SITE_NAME, SITE_URL, FEATURED_PRICE_LABEL } from "@/lib/util";
 
 export const revalidate = 300;
 
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {s ? (
           <SponsorBar id={`s${s.id}`} label="Sponsored" text={s.headline || s.sponsor_name} href={`/go/${s.go_slug}`} />
         ) : (
-          <SponsorBar id="house1" label="Makers" text={`Built an AI tool? Feature it here from ₹${FEATURED_PRICE_INR}/month.`} href="/sponsor" />
+          <SponsorBar id="house1" label="Makers" text={`Built an AI tool? Feature it here from ${FEATURED_PRICE_LABEL}.`} href="/sponsor" />
         )}
         <header className="top"><div className="wrap">
           <Link href="/" className="logo">AI Starter<span>Kit</span></Link>

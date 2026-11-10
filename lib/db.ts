@@ -29,7 +29,7 @@ create table if not exists pageviews (id bigserial primary key, path text not nu
 create index if not exists pageviews_created_idx on pageviews (created_at);
 create table if not exists sponsor_weeks (
   id serial primary key, slot text not null default 'featured', sponsor_name text not null, entry_slug text, go_slug text unique,
-  target_url text, headline text, week_start date not null, week_end date not null, price_inr integer not null default 999,
+  target_url text, headline text, week_start date not null, week_end date not null, price_inr integer not null default 2700,
   status text not null default 'booked', created_at timestamptz not null default now());
 create table if not exists sponsor_clicks (id bigserial primary key, slug text not null, sponsor_week_id integer, referrer text, created_at timestamptz not null default now());
 create table if not exists sponsor_inquiries (

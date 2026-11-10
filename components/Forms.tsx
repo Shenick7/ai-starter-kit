@@ -70,7 +70,7 @@ export function InquiryForm() {
       <label>Company / tool name<input name="company" maxLength={120} /></label>
       <label>Tool website<input name="tool_url" type="url" maxLength={300} /></label>
       <label>Interested in<select name="slot" defaultValue="featured">
-        <option value="featured">Featured tool slot (₹999/month)</option>
+        <option value="featured">Featured tool slot: $29/month (about ₹2,700)</option>
         <option value="newsletter">Newsletter sponsor (coming soon)</option>
         <option value="other">Something else</option>
       </select></label>

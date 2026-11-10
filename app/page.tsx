@@ -4,7 +4,7 @@ import { GUIDES } from "@/lib/guides";
 import { getEntries, activeSponsor } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
 import { SignupForm } from "@/components/Forms";
-import { FEATURED_PRICE_INR } from "@/lib/util";
+import { FEATURED_PRICE_LABEL } from "@/lib/util";
 
 export const revalidate = 300;
 
@@ -41,7 +41,7 @@ export default async function Home() {
           <article className="card featured">
             <span className="pill">Featured slot</span>
             <h3><Link href="/sponsor">Your AI tool here</Link></h3>
-            <p>Reach beginners looking for their first AI tool. ₹{FEATURED_PRICE_INR}/month.</p>
+            <p>Reach beginners looking for their first AI tool. {FEATURED_PRICE_LABEL}.</p>
           </article>
         )}
         {picks.map((t) => <ToolCard key={t.slug} t={t} />)}
