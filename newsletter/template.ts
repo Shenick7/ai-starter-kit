@@ -8,20 +8,24 @@ const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 
 export function renderIssue(i: Issue) {
   const u = (p: string) => `${i.siteUrl}${p}${p.includes("?") ? "&" : "?"}utm_source=newsletter&utm_medium=email&utm_campaign=issue-${i.number}`;
-  const sponsor = i.sponsor
-    ? `<p style="margin:0 0 18px;padding:10px 12px;background:#f5f3ff;border-radius:8px;font-size:14px">Sponsored by <a href="${i.siteUrl}/go/${i.sponsor.goSlug}" style="color:#4f46e5;font-weight:700">${esc(i.sponsor.name)}</a>: ${esc(i.sponsor.line)}</p>`
-    : `<p style="margin:0 0 18px;padding:10px 12px;background:#f5f3ff;border-radius:8px;font-size:14px">Sponsored by: this spot is open. <a href="${u("/sponsor")}" style="color:#4f46e5;font-weight:700">Feature your AI tool here</a>.</p>`;
-  const html = `<!doctype html><html><body style="margin:0;background:#fbfaf7;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#16181d">
-<div style="max-width:560px;margin:0 auto;padding:24px 18px">
-<p style="margin:0 0 4px;font-weight:800;font-size:18px">AI Starter Kit <span style="color:#5b6170;font-weight:400;font-size:14px">#${i.number}</span></p>
-${sponsor}
-<h1 style="font-size:22px;line-height:1.25;margin:0 0 8px">This week's 5-minute trick: ${esc(i.trickTitle)}</h1>
-<ol style="padding-left:20px;margin:0 0 20px;font-size:16px;line-height:1.55">${i.trickSteps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
-<h2 style="font-size:18px;margin:0 0 8px">5 tools worth a look</h2>
-<ul style="padding-left:20px;margin:0 0 20px;font-size:16px;line-height:1.55">${i.picks.slice(0, 5).map((p) => `<li><a href="${u(`/tools/${p.slug}`)}" style="color:#4f46e5;font-weight:700">${esc(p.name)}</a>: ${esc(p.line)}</li>`).join("")}</ul>
-<p style="margin:0 0 20px"><a href="${u("/")}" style="display:inline-block;background:#4f46e5;color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none">Find a tool for your task →</a></p>
-<p style="font-size:12px;color:#5b6170;margin:0">You're getting this because you signed up at AI Starter Kit. <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#5b6170">Unsubscribe</a>.</p>
-</div></body></html>`;
+  const F = "font-family:Arial,Helvetica,sans-serif;color:#16181d;";
+  const sponsorInner = i.sponsor
+    ? `Sponsored by <a href="${i.siteUrl}/go/${i.sponsor.goSlug}" style="color:#4f46e5;font-weight:bold">${esc(i.sponsor.name)}</a>: ${esc(i.sponsor.line)}`
+    : `Sponsored by: this spot is open. <a href="${u("/sponsor")}" style="color:#4f46e5;font-weight:bold">Feature your AI tool here</a>.`;
+  const row = (inner: string, pad = "0 0 18px 0") => `<tr><td style="padding:${pad}">${inner}</td></tr>`;
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>AI Starter Kit #${i.number}</title></head>
+<body style="margin:0;padding:0;background-color:#fbfaf7">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fbfaf7" style="background-color:#fbfaf7"><tr><td align="center" style="padding-top:24px;padding-bottom:24px;padding-left:16px;padding-right:16px">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">
+${row(`<p style="${F}margin:0;font-size:18px;line-height:24px;font-weight:bold">AI Starter Kit <span style="color:#5b6170;font-weight:normal;font-size:14px">#${i.number}</span></p>`, "0 0 12px 0")}
+${row(`<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="#f5f3ff" style="background-color:#f5f3ff;padding-top:10px;padding-bottom:10px;padding-left:12px;padding-right:12px;${F}font-size:14px;line-height:20px">${sponsorInner}</td></tr></table>`)}
+${row(`<h1 style="${F}font-size:22px;line-height:28px;margin:0">This week's 5-minute trick: ${esc(i.trickTitle)}</h1>`, "0 0 8px 0")}
+${row(`<ol style="${F}padding-left:20px;margin:0;font-size:16px;line-height:24px">${i.trickSteps.map((s) => `<li style="${F}font-size:16px;line-height:24px">${esc(s)}</li>`).join("")}</ol>`, "0 0 20px 0")}
+${row(`<h2 style="${F}font-size:18px;line-height:24px;margin:0">5 tools worth a look</h2>`, "0 0 8px 0")}
+${row(`<ul style="${F}padding-left:20px;margin:0;font-size:16px;line-height:24px">${i.picks.slice(0, 5).map((p) => `<li style="${F}font-size:16px;line-height:24px"><a href="${u(`/tools/${p.slug}`)}" style="color:#4f46e5;font-weight:bold">${esc(p.name)}</a>: ${esc(p.line)}</li>`).join("")}</ul>`, "0 0 20px 0")}
+${row(`<table cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="#4f46e5" style="background-color:#4f46e5;padding-top:10px;padding-bottom:10px;padding-left:16px;padding-right:16px"><a href="${u("/")}" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;color:#ffffff;font-weight:bold;text-decoration:none">Find a tool for your task &rarr;</a></td></tr></table>`, "0 0 20px 0")}
+${row(`<p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#5b6170;margin:0">You're getting this because you signed up at AI Starter Kit. <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#5b6170">Unsubscribe</a>.</p>`, "0")}
+</table></td></tr></table></body></html>`;
   const text = `AI Starter Kit #${i.number}\n\n${i.sponsor ? `Sponsored by ${i.sponsor.name}: ${i.sponsor.line} ${i.siteUrl}/go/${i.sponsor.goSlug}` : `Sponsored by: this spot is open. ${i.siteUrl}/sponsor`}\n\nThis week's 5-minute trick: ${i.trickTitle}\n${i.trickSteps.map((s, n) => `${n + 1}. ${s}`).join("\n")}\n\n5 tools worth a look\n${i.picks.slice(0, 5).map((p) => `- ${p.name}: ${p.line} ${i.siteUrl}/tools/${p.slug}`).join("\n")}\n\nUnsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}`;
   return { subject: `#${i.number}: ${i.trickTitle} (5-minute AI trick)`, html, text };
 }
