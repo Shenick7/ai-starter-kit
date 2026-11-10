@@ -22,5 +22,8 @@ Tables are created automatically on first request (`lib/db.ts`) and `entries` is
 - `GET /api/admin/stats`, `GET /api/admin/searches`
 - `GET /api/admin/sponsors`, `POST /api/admin/sponsors` `{ "slot": "featured"|"bar"|"newsletter", "sponsor_name", "go_slug", "target_url", "headline", "week_start": "YYYY-MM-DD", "week_end": "YYYY-MM-DD", "price_inr": 999 }`
 
+- `GET /api/admin/rows?table=pageviews|sponsor_clicks|signups|zero_result_searches|errors`
+- `POST /api/admin/delete` `{ "table": "submissions", "ids": [1] }` (remove test rows; seeded tools can't be deleted)
+
 ## Newsletter
 `newsletter/template.ts` renders an issue (one 5-minute trick, 5 one-line picks, "Sponsored by" line, unsubscribe placeholder). Paste into a Resend Broadcast for the "AI Starter Kit" segment. Never auto-sent.
