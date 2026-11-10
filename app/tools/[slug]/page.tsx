@@ -24,6 +24,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   return (
     <div className="prose">
       <p className="crumbs"><Link href="/">Home</Link> / {cat && <Link href={`/category/${cat.slug}`}>{cat.label}</Link>}</p>
+      {cat && <p className="for">Best for: {cat.blurb}</p>}
       <h1>{t.name}</h1>
       <p className="muted" style={{ fontSize: 19 }}>{t.tagline}</p>
       <div className="row"><VerdictPill v={t.verdict} /><a className="btn" href={`/go/${t.slug}`} rel="noopener">Open {t.name} ↗</a></div>

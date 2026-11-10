@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CATEGORIES } from "@/lib/tools";
+import { CATEGORIES, TOOLS } from "@/lib/tools";
+import { JOBS } from "@/lib/jobs";
 import { GUIDES } from "@/lib/guides";
 import { getEntries, activeSponsor } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
@@ -23,13 +24,26 @@ export default async function Home() {
           ))}
           <Link href="/learn" className="task"><span className="e" aria-hidden>💡</span><b>New to AI?</b><small>Start with our 5-minute beginner guides.</small></Link>
         </nav>
+        <h2 className="sec">I want to…</h2>
+        <nav className="tasks jobs" aria-label="I want to">
+          {JOBS.map((j) => {
+            const name = entries.find((e) => e.slug === j.tool)?.name || TOOLS.find((t) => t.slug === j.tool)?.name;
+            if (!name) return null;
+            return (
+              <Link key={j.phrase} href={`/tools/${j.tool}`} className="task">
+                <b>{j.phrase}</b>
+                <small>Try {name} →</small>
+              </Link>
+            );
+          })}
+        </nav>
         <form className="search" action="/search" role="search">
-          <input name="q" placeholder="Search tools, e.g. “resume”, “logo”, “podcast”" aria-label="Search tools" />
+          <input name="q" placeholder="Describe your task, e.g. “write an email to my boss”" aria-label="Describe your task" />
           <button className="btn">Search</button>
         </form>
       </section>
 
-      <h2 className="sec">Top beginner picks</h2>
+      <h2 className="sec">Best first tool for each task</h2>
       <div className="grid">
         {featured ? (
           <article className="card featured">

@@ -12,6 +12,8 @@ nav.main{display:flex;gap:16px;font-size:15px;flex-wrap:wrap}nav.main a{color:va
 .hero{padding:34px 0 10px}.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
 .hero p{color:var(--muted);font-size:clamp(16px,2.6vw,19px);margin:0 0 20px;max-width:640px}
 .tasks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(min-width:640px){.tasks{grid-template-columns:repeat(3,1fr)}}@media(min-width:960px){.tasks{grid-template-columns:repeat(5,1fr)}}
+.tasks.jobs{grid-template-columns:1fr}@media(min-width:640px){.tasks.jobs{grid-template-columns:repeat(2,1fr)}}@media(min-width:960px){.tasks.jobs{grid-template-columns:repeat(3,1fr)}}
+.for{color:var(--muted);font-size:14px;margin:12px 0 0}.card .for{font-size:13px;margin:0}
 .task{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;color:var(--ink);min-height:84px;transition:transform .1s,border-color .1s}
 .task:hover{text-decoration:none;border-color:var(--brand);transform:translateY(-1px)}.task .e{font-size:24px}.task b{font-size:16px}.task small{color:var(--muted);font-size:12.5px;line-height:1.35}
 .search{display:flex;gap:8px;margin:18px 0 6px}.search input{flex:1;min-width:0;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
