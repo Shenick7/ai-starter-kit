@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Turnstile from "./Turnstile";
+import { BAR_PRICE_LABEL, FEATURED_PRICE_LABEL, NEWSLETTER_PRICE_LABEL } from "@/lib/prices";
 
 type State = { kind: "idle" | "busy" | "ok" | "err"; msg?: string };
 
@@ -34,6 +36,7 @@ export function SignupForm({ source = "site" }: { source?: string }) {
         <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address" />
         <input type="hidden" name="source" value={source} />
         <Hp />
+        <Turnstile />
         <button className="btn" disabled={s.kind === "busy"}>{s.kind === "busy" ? "Adding…" : "Get the weekly trick"}</button>
       </form>
       <Status s={s} />
@@ -55,6 +58,7 @@ export function SubmitToolForm({ categories }: { categories: { slug: string; lab
       <label>What does the free plan include?<textarea name="free_plan" rows={3} maxLength={600} /></label>
       <label>Your email (so we can follow up)<input name="email" type="email" required maxLength={200} /></label>
       <Hp />
+      <Turnstile />
       <button className="btn" disabled={s.kind === "busy"}>{s.kind === "busy" ? "Sending…" : "Submit for review"}</button>
       <Status s={s} />
     </form>
@@ -84,8 +88,9 @@ export function InquiryForm() {
       <label>Company / tool name<input name="company" maxLength={120} /></label>
       <label>Tool website<input name="tool_url" type="url" maxLength={300} /></label>
       <label>Interested in<select name="slot" defaultValue="featured">
-        <option value="featured">Featured tool slot: $29/month (about ₹2,700)</option>
-        <option value="newsletter">Newsletter sponsor (coming soon)</option>
+        <option value="featured">Featured tool slot: {FEATURED_PRICE_LABEL}</option>
+        <option value="bar">Site-wide bar slot: {BAR_PRICE_LABEL}</option>
+        <option value="newsletter">Newsletter sponsor: {NEWSLETTER_PRICE_LABEL}</option>
         <option value="other">Something else</option>
       </select></label>
       <label>Message<textarea name="message" rows={4} maxLength={2000} /></label>

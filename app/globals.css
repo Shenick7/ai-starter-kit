@@ -57,7 +57,12 @@ footer.ft{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 40px;c
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
 .chip:hover{border-color:var(--brand)}
 .chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
-/* Simple tables (admin dashboard). */
+/* FAQ blocks (tool/category/compare pages). */
+.faq{margin:26px 0}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:10px 0}
+.faq summary{font-weight:700;font-size:16px;cursor:pointer}
+.faq details p{margin:8px 0 2px;font-size:16px;color:var(--muted)}
+/* Simple tables (admin dashboard, compare pages). */
 .tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px;margin:8px 0 18px}
 .tbl th,.tbl td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .tbl th{color:var(--muted);font-size:13px}

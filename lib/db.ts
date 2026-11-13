@@ -35,6 +35,9 @@ create table if not exists sponsor_clicks (id bigserial primary key, slug text n
 create table if not exists sponsor_inquiries (
   id serial primary key, name text not null, email text not null, company text, tool_url text, slot text, message text,
   ip_hash text, created_at timestamptz not null default now());
+create table if not exists newsletter_sends (
+  id serial primary key, issue_number integer not null unique, broadcast_id text, recipients integer not null default 0,
+  sent_at timestamptz not null default now());
 create table if not exists errors (id bigserial primary key, location text, message text, created_at timestamptz not null default now());
 create table if not exists messages (
   id serial primary key, name text not null, email text not null, message text not null,

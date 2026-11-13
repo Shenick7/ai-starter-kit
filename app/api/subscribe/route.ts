@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { hasDb, ready, sql, logError } from "@/lib/db";
 import { checkEmail } from "@/lib/email";
 import { clean, ipHash } from "@/lib/util";
+import { verifyTurnstile } from "@/lib/turnstile";
 import { tooMany } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
   const j = await req.json().catch(() => ({}));
   if (clean(j.website)) return NextResponse.json({ ok: true, message: "You're in!" }); // honeypot
+  const ts = await verifyTurnstile(req, j["cf-turnstile-response"]);
+  if (!ts.ok) return NextResponse.json({ error: ts.reason }, { status: 400 });
   const chk = await checkEmail(clean(j.email, 254));
   if (!chk.ok) return NextResponse.json({ error: chk.reason }, { status: 400 });
   if (!hasDb()) return NextResponse.json({ error: "Signups open very soon. Please try again later." }, { status: 503 });

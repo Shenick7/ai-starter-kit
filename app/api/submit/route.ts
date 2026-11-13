@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { hasDb, ready, sql, logError } from "@/lib/db";
 import { checkEmail } from "@/lib/email";
 import { clean, ipHash, isHttpUrl } from "@/lib/util";
+import { verifyTurnstile } from "@/lib/turnstile";
 import { CATEGORIES } from "@/lib/tools";
 import { tooMany } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
   const j = await req.json().catch(() => ({}));
   if (clean(j.website)) return NextResponse.json({ ok: true });
+  const ts = await verifyTurnstile(req, j["cf-turnstile-response"]);
+  if (!ts.ok) return NextResponse.json({ error: ts.reason }, { status: 400 });
   const name = clean(j.name, 80), url = clean(j.url, 300), category = clean(j.category, 40), tagline = clean(j.tagline, 160), free = clean(j.free_plan, 600);
   if (!name || !isHttpUrl(url) || !tagline) return NextResponse.json({ error: "Please fill in the name, a valid https:// link and a one-line description." }, { status: 400 });
   if (!CATEGORIES.some((c) => c.slug === category)) return NextResponse.json({ error: "Please choose a task." }, { status: 400 });

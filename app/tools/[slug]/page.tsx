@@ -5,8 +5,10 @@ import { CATEGORIES } from "@/lib/tools";
 import { getEntries, getEntry } from "@/lib/db";
 import { VerdictPill } from "@/components/ToolCard";
 import ToolCard from "@/components/ToolCard";
+import FaqBlock from "@/components/Faq";
+import { toolFaqs } from "@/lib/faq";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbJsonLd, softwareApplicationJsonLd } from "@/lib/jsonld";
+import { breadcrumbJsonLd, faqJsonLd, softwareApplicationJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/util";
 
 export const revalidate = 300;
@@ -29,10 +31,12 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
     ...(cat ? [{ name: cat.label, url: `${SITE_URL}/category/${cat.slug}` }] : []),
     { name: t.name, url: `${SITE_URL}/tools/${t.slug}` },
   ];
+  const faqs = toolFaqs(t);
   return (
     <div className="prose">
       <JsonLd data={softwareApplicationJsonLd(t, cat?.label ?? "AI tools")} />
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd data={faqJsonLd(faqs)} />
       <p className="crumbs"><Link href="/">Home</Link> / {cat && <Link href={`/category/${cat.slug}`}>{cat.label}</Link>}</p>
       {cat && <p className="for">Best for: {cat.blurb}</p>}
       <h1>{t.name}</h1>
@@ -44,6 +48,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
       <div className="box"><p><b>{t.verdictNote}</b></p><p>{t.freePlan}</p>
         <p className="muted" style={{ fontSize: 14 }}>Source: <a href={t.sourceUrl} rel="nofollow noopener" target="_blank">{t.name}'s own pricing page</a>, checked Nov 2026. Plans change; confirm before you pay.</p></div>
       {related.length > 0 && <><h2>Similar tools</h2><div className="grid">{related.map((r) => <ToolCard key={r.slug} t={r} />)}</div></>}
+      <FaqBlock faqs={faqs} />
     </div>
   );
 }
