@@ -13,6 +13,7 @@ export const revalidate = 3600;
 // crawlers to ignore the signal.
 const LAUNCH = new Date("2026-11-10T00:00:00.000Z");
 const PHASE_1 = new Date("2026-11-13T00:00:00.000Z");
+const PHASE_2 = new Date("2026-11-13T00:00:00.000Z");
 
 const FIXED: [string, Date][] = [
   ["", LAUNCH],
@@ -24,6 +25,7 @@ const FIXED: [string, Date][] = [
   ["/about", PHASE_1],
   ["/privacy", PHASE_1],
   ["/terms", PHASE_1],
+  ["/tools", PHASE_2],
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

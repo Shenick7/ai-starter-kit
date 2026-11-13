@@ -10,7 +10,14 @@ export const OWNER_EMAIL = "jainshenick@gmail.com"; // the only address the site
 
 export function ipHash(req: NextRequest) {
   const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
-  return createHash("sha256").update(ip + (process.env.ADMIN_TOKEN || "salt")).digest("hex").slice(0, 32);
+  // Salt for the IP hashes used in rate limiting. Set IP_HASH_SALT in Vercel
+  // (Project Settings → Environment Variables) to a long random string, and
+  // keep it the same across deploys: changing it changes every IP hash, so
+  // all rate-limit counters reset. It falls back to ADMIN_TOKEN, then to the
+  // literal "salt", only so the site keeps working before the variable is
+  // set — that fallback is not private, so set IP_HASH_SALT.
+  const salt = process.env.IP_HASH_SALT || process.env.ADMIN_TOKEN || "salt";
+  return createHash("sha256").update(ip + salt).digest("hex").slice(0, 32);
 }
 
 export function isAdmin(req: NextRequest) {
