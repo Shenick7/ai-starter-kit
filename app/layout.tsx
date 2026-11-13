@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main className="wrap">{children}</main>
         <footer className="ft"><div className="wrap">
           <div>© {new Date().getFullYear()} {SITE_NAME}. Free-plan info is checked against each tool's own pricing page; plans change, so always confirm before paying.</div>
-          <div className="row"><Link href="/learn">Learn</Link><Link href="/submit">Submit a tool</Link><Link href="/sponsor">Advertise</Link><Link href="/contact">Contact</Link></div>
+          <div className="row"><Link href="/learn">Learn</Link><Link href="/submit">Submit a tool</Link><Link href="/sponsor">Advertise</Link><Link href="/contact">Contact</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
           <div style={{ flexBasis: "100%", fontSize: 13 }}>A Shenick Jain product · <a href="https://x.com/Shenick_7" target="_blank" rel="noopener me">X</a> · <a href="https://instagram.com/shenick7" target="_blank" rel="noopener me">Instagram</a></div>
         </div></footer>
         <Pageview />
