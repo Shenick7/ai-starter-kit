@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 
 export default function SponsorBar({ text, href, label, id }: { text: string; href: string; label: string; id: string }) {
   const key = "sbar-closed-" + id;
-  const [open, setOpen] = useState(false);
-  useEffect(() => { try { setOpen(localStorage.getItem(key) !== "1"); } catch { setOpen(true); } }, [key]);
+  // Render open on the first paint so the header is not pushed down after
+  // hydration (layout shift). Only after hydration do we check whether this
+  // visitor already dismissed the bar, and hide it then.
+  const [open, setOpen] = useState(true);
+  useEffect(() => { try { if (localStorage.getItem(key) === "1") setOpen(false); } catch {} }, [key]);
   if (!open) return null;
   return (
     <div className="sbar" role="region" aria-label="Sponsor">
