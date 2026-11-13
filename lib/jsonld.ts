@@ -84,6 +84,18 @@ export function softwareApplicationJsonLd(
   });
 }
 
+/** FAQPage for tool, category and compare pages. */
+export function faqJsonLd(faqs: { q: string; a: string }[]) {
+  return context({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  });
+}
+
 /** Article for a Learn guide page. */
 export function articleJsonLd(g: Guide) {
   return context({

@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 import { CATEGORIES } from "@/lib/tools";
 import { getEntries } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
+import FaqBlock from "@/components/Faq";
+import { categoryFaqs } from "@/lib/faq";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
+import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/util";
 
 export const revalidate = 300;
@@ -23,13 +25,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const c = CATEGORIES.find((x) => x.slug === slug);
   if (!c) notFound();
   const list = (await getEntries()).filter((e) => e.categories.includes(slug)).sort((a, b) => Number(!!b.pick && b.categories[0] === slug) - Number(!!a.pick && a.categories[0] === slug));
+  const faqs = categoryFaqs(slug, list);
   return (
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", url: SITE_URL }, { name: c.label, url: `${SITE_URL}/category/${c.slug}` }])} />
       <JsonLd data={itemListJsonLd(list.map((t) => ({ name: t.name, url: `${SITE_URL}/tools/${t.slug}` })))} />
+      <JsonLd data={faqJsonLd(faqs)} />
       <p className="crumbs"><Link href="/">Home</Link> / {c.label}</p>
       <div className="prose"><h1>{c.emoji} AI tools to {c.label.toLowerCase()}</h1><p className="muted">{c.blurb} Start with the first one: it's our top beginner pick.</p></div>
       <div className="grid">{list.map((t) => <ToolCard key={t.slug} t={t} />)}</div>
+      <div className="prose"><FaqBlock faqs={faqs} /></div>
       <p className="muted" style={{ marginTop: 20 }}>Missing a tool? <Link href="/submit">Submit it for review</Link>.</p>
     </>
   );
