@@ -4,6 +4,7 @@ import { JOBS } from "@/lib/jobs";
 import { GUIDES } from "@/lib/guides";
 import { getEntries, activeSponsor } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
+import { SignupForm } from "@/components/Forms";
 import JsonLd from "@/components/JsonLd";
 import { itemListJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { FEATURED_PRICE_LABEL, SITE_URL } from "@/lib/util";
