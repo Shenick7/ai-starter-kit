@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import SponsorBar from "@/components/SponsorBar";
 import MainNav from "@/components/MainNav";
 import Pageview from "@/components/Pageview";
@@ -43,6 +45,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <div style={{ flexBasis: "100%", fontSize: 13 }}>A Shenick Jain product · <a href="https://x.com/Shenick_7" target="_blank" rel="noopener me">X</a> · <a href="https://instagram.com/shenick7" target="_blank" rel="noopener me">Instagram</a></div>
         </div></footer>
         <Pageview />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

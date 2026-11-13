@@ -2,7 +2,23 @@
   "name": "ai-starter-kit",
   "version": "0.1.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start" },
-  "dependencies": { "next": "^16.4.6", "react": "^19.2.0", "react-dom": "^19.2.0", "postgres": "^3.4.7" },
-  "devDependencies": { "@types/node": "^22", "@types/react": "^19", "@types/react-dom": "^19", "typescript": "^5.9" }
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.1.0",
+    "next": "^16.4.6",
+    "postgres": "^3.4.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5.9"
+  }
 }
