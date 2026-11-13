@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", siteName: SITE_NAME, url: SITE_URL },
   twitter: { card: "summary_large_image", creator: "@Shenick_7" },
   alternates: { canonical: "/" },
+  verification: { google: "OMV1aayOgp3OCvpHgVD2pFS5mJdjJJ20srwvZbw_jTo" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#4f46e5" };
 
