@@ -42,6 +42,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
       <h1>{t.name}</h1>
       <p className="muted" style={{ fontSize: 19 }}>{t.tagline}</p>
       <div className="row"><VerdictPill v={t.verdict} /><a className="btn" href={`/go/${t.slug}`} rel="noopener">Open {t.name} ↗</a></div>
+      {t.affiliateUrl && <p className="muted" style={{ fontSize: 14 }}>Affiliate link: if you sign up or pay through this link, we may earn a commission at no extra cost to you. It never affects our free-plan verdict above.</p>}
       <h2>What it is</h2><p>{t.what}</p>
       <h2>How to start in 5 minutes</h2><ol>{t.start.map((s, i) => <li key={i}>{s}</li>)}</ol>
       <h2>Is the free plan enough?</h2>

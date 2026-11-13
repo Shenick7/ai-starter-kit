@@ -15,7 +15,34 @@ export type Tool = {
   verdictNote: string;
   sourceUrl: string;
   pick?: boolean; // top beginner pick for its primary category
+  affiliateUrl?: string; // per-owner tracking link; never affects verdict or free-plan text
 };
+
+// Affiliate links (Phase 4). Every affiliate tracking link is unique to the site
+// owner, so no genuine link can be written here until the owner joins each
+// programme and pastes their own link. Programmes verified 14 Nov 2026 —
+// the owner applies at each programme page, gets approved, and pastes the
+// unique link they are given into this map (slug -> full tracking URL):
+//   OPEN, joinable now: Grammarly (grammarly.com/affiliates, Impact/CJ),
+//     Descript (descript.com/affiliate, PartnerStack, $25/subscriber),
+//     ElevenLabs (elevenlabs.io/affiliates, PartnerStack, 22% for 12 months),
+//     QuillBot (quillbot.com/affiliates, Impact, up to 20%),
+//     Make (make.com/en/affiliates, 50% first payment + 20% for 23 months),
+//     Lovable (lovable.dev/partners/affiliates, Impact, up to $100/subscriber),
+//     Gamma (help.gamma.app affiliate article, PartnerStack, ~25-30% first year),
+//     Runway Rewards (runway.com/rewards, $15/subscriber — code-based, no link),
+//     Adobe (adobe.com/affiliates, Partnerize, approval required).
+//   GATED (audience/approval needed): HeyGen (5K+ followers, up to 30% 6 months),
+//     Zapier (partner tracks only, no public self-serve programme).
+//   CLOSED to new applicants: Canva (Canvassador closed), Notion (enrolment not
+//     open), Leonardo.Ai (closed 7 Apr 2026).
+//   NO cash affiliate programme found: ChatGPT/OpenAI, Claude, Gemini, Copilot,
+//     Mistral, Perplexity, NotebookLM, Khanmigo, CapCut, IFTTT, Bolt, Fathom,
+//     Suno, Midjourney, Google AI Studio. Otter.ai: conflicting evidence —
+//     Otter's own referral page offers credits only, so treated as no programme.
+// Until a link is pasted here, /go/[slug] keeps using the plain tool URL and
+// no affiliate label is shown anywhere on the site.
+export const AFFILIATE_URLS: Record<string, string> = {};
 
 export const CATEGORIES = [
   { slug: "write", label: "Write", emoji: "✍️", blurb: "Emails, essays, captions and cleaner writing." },

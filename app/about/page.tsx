@@ -43,6 +43,12 @@ export default function About() {
         listing is always clearly labelled, and no payment can change a free-plan verdict or
         buy a recommendation. Regular listings are free.
       </p>
+      <p>
+        Some &ldquo;Open&rdquo; buttons are affiliate links: if you sign up or pay through one,
+        we may earn a commission at no extra cost to you. Every affiliate link is labelled
+        on the tool&rsquo;s page, and it never affects the free-plan verdict or the order
+        tools are shown in. Most tools here have no affiliate link at all.
+      </p>
 
       <h2>What this site is not</h2>
       <p>

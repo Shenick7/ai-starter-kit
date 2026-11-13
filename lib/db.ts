@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { TOOLS, type Tool, type Verdict } from "./tools";
+import { TOOLS, AFFILIATE_URLS, type Tool, type Verdict } from "./tools";
 
 const url = process.env.DATABASE_URL || process.env.POSTGRES_URL || "";
 const g = globalThis as unknown as { _sql?: ReturnType<typeof postgres>; _ready?: Promise<void> };
@@ -52,6 +52,14 @@ export async function ready() {
       await db.unsafe(SCHEMA);
       const [{ n }] = await db`select count(*)::int as n from entries`;
       if (n === 0) await seedEntries();
+      // Sync affiliate URLs from code into the already-seeded DB. seedEntries()
+      // only runs on an empty table and uses "on conflict do nothing", so a
+      // link added later would never reach production without this step.
+      // AFFILIATE_URLS is empty until the owner joins a programme and pastes
+      // their own tracking link (see lib/tools.ts), so this is a no-op for now.
+      for (const [slug, affiliateUrl] of Object.entries(AFFILIATE_URLS)) {
+        await db`update entries set affiliate_url=${affiliateUrl} where slug=${slug}`;
+      }
     })().catch((e) => { g._ready = undefined; throw e; });
   }
   return g._ready;
