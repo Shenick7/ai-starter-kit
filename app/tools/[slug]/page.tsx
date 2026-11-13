@@ -5,6 +5,9 @@ import { CATEGORIES } from "@/lib/tools";
 import { getEntries, getEntry } from "@/lib/db";
 import { VerdictPill } from "@/components/ToolCard";
 import ToolCard from "@/components/ToolCard";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, softwareApplicationJsonLd } from "@/lib/jsonld";
+import { SITE_URL } from "@/lib/util";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return (await getEntries()).map((e) => ({ slug: e.slug })); }
@@ -21,8 +24,15 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   if (!t) notFound();
   const cat = CATEGORIES.find((c) => c.slug === t.categories[0]);
   const related = (await getEntries()).filter((e) => e.slug !== t.slug && e.categories.includes(t.categories[0])).slice(0, 3);
+  const crumbs = [
+    { name: "Home", url: SITE_URL },
+    ...(cat ? [{ name: cat.label, url: `${SITE_URL}/category/${cat.slug}` }] : []),
+    { name: t.name, url: `${SITE_URL}/tools/${t.slug}` },
+  ];
   return (
     <div className="prose">
+      <JsonLd data={softwareApplicationJsonLd(t, cat?.label ?? "AI tools")} />
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <p className="crumbs"><Link href="/">Home</Link> / {cat && <Link href={`/category/${cat.slug}`}>{cat.label}</Link>}</p>
       {cat && <p className="for">Best for: {cat.blurb}</p>}
       <h1>{t.name}</h1>
