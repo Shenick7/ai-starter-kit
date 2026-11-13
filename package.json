@@ -19,7 +19,6 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "lighthouse": "^13.6.0",
     "typescript": "^5.9"
   }
 }
