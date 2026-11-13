@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import { CATEGORIES } from "@/lib/tools";
 import { getEntries } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
+import { SITE_URL } from "@/lib/util";
 
 export const revalidate = 300;
 export function generateStaticParams() { return CATEGORIES.map((c) => ({ slug: c.slug })); }
@@ -22,6 +25,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const list = (await getEntries()).filter((e) => e.categories.includes(slug)).sort((a, b) => Number(!!b.pick && b.categories[0] === slug) - Number(!!a.pick && a.categories[0] === slug));
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", url: SITE_URL }, { name: c.label, url: `${SITE_URL}/category/${c.slug}` }])} />
+      <JsonLd data={itemListJsonLd(list.map((t) => ({ name: t.name, url: `${SITE_URL}/tools/${t.slug}` })))} />
       <p className="crumbs"><Link href="/">Home</Link> / {c.label}</p>
       <div className="prose"><h1>{c.emoji} AI tools to {c.label.toLowerCase()}</h1><p className="muted">{c.blurb} Start with the first one: it's our top beginner pick.</p></div>
       <div className="grid">{list.map((t) => <ToolCard key={t.slug} t={t} />)}</div>

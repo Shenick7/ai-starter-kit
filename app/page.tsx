@@ -5,7 +5,9 @@ import { GUIDES } from "@/lib/guides";
 import { getEntries, activeSponsor } from "@/lib/db";
 import ToolCard from "@/components/ToolCard";
 import { SignupForm } from "@/components/Forms";
-import { FEATURED_PRICE_LABEL } from "@/lib/util";
+import JsonLd from "@/components/JsonLd";
+import { itemListJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { FEATURED_PRICE_LABEL, SITE_URL } from "@/lib/util";
 
 export const revalidate = 300;
 
@@ -15,6 +17,8 @@ export default async function Home() {
   const featuredEntry = featured?.entry_slug ? entries.find((e) => e.slug === featured.entry_slug) : undefined;
   return (
     <>
+      <JsonLd data={websiteJsonLd()} />
+      <JsonLd data={itemListJsonLd(picks.map((t) => ({ name: t.name, url: `${SITE_URL}/tools/${t.slug}` })))} />
       <section className="hero">
         <h1>What do you want AI to help with?</h1>
         <p>Pick a task. We'll show you the easiest AI tool for it, how to start in 5 minutes, and whether the free plan is enough.</p>
