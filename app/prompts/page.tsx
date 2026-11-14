@@ -33,14 +33,18 @@ export default function PromptsPage() {
       <div className="grid">
         {PROMPT_CATEGORIES.map((c) => (
           <article key={c.slug} className="card">
-            <h3><Link href={`/prompts/${c.slug}`}>{c.emoji} {c.label}</Link></h3>
-            <p>{c.blurb}</p>
-            <small className="muted">{promptsByCategory(c.slug).length} prompts →</small>
+            <Link href={`/prompts/${c.slug}`} className="card-link">
+              <h3>{c.emoji} {c.label}</h3>
+              <p>{c.blurb}</p>
+              <small className="muted">{promptsByCategory(c.slug).length} prompts →</small>
+            </Link>
           </article>
         ))}
         <article className="card featured">
-          <h3><Link href="/prompts/generator">Make your own prompt →</Link></h3>
-          <p>Pick a role and say what you want. The generator builds a ready-to-copy prompt for you — free, no sign-up.</p>
+          <Link href="/prompts/generator" className="card-link">
+            <h3>Make your own prompt →</h3>
+            <p>Pick a role and say what you want. The generator builds a ready-to-copy prompt for you — free, no sign-up.</p>
+          </Link>
         </article>
       </div>
       <div className="prose">
