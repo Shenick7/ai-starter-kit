@@ -27,6 +27,7 @@ export default async function Home() {
             <Link key={c.slug} href={`/category/${c.slug}`} className="task"><span className="e" aria-hidden>{c.emoji}</span><b>{c.label}</b><small>{c.blurb}</small></Link>
           ))}
           <Link href="/learn" className="task"><span className="e" aria-hidden>💡</span><b>New to AI?</b><small>Start with our 5-minute beginner guides.</small></Link>
+          <Link href="/prompts" className="task"><span className="e" aria-hidden>✍️</span><b>Copy-ready prompts</b><small>300 prompts that work in any AI. Copy, paste, done.</small></Link>
         </nav>
         <h2 className="sec">I want to…</h2>
         <nav className="tasks jobs" aria-label="I want to">

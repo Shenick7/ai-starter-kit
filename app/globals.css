@@ -54,6 +54,9 @@ footer.ft{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 40px;c
   nav.main a{padding:11px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}
   nav.main a:last-child{border-bottom:0}
 }
+/* Prompt library (Phase 5): the prompt text box and the copy button. */
+.prompt{background:#fbfaf7;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px;margin:0;white-space:pre-wrap}
+.copybtn{align-self:flex-start}
 /* Filter chips (tools index, admin dashboard tabs). */
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
