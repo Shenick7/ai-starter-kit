@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { Calistoga, DM_Sans } from "next/font/google";
 import "./globals.css";
+
+// Display serif for headings + clean sans for body, matching the
+// reference site's type pairing (our own text and content, new look).
+const displayFont = Calistoga({ weight: "400", subsets: ["latin"], variable: "--font-display" });
+const sansFont = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SponsorBar from "@/components/SponsorBar";
@@ -22,12 +28,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   verification: { google: "OMV1aayOgp3OCvpHgVD2pFS5mJdjJJ20srwvZbw_jTo" },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#4f46e5" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#a78bfa" };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const s = await activeSponsor("bar");
   return (
-    <html lang="en">
+    <html lang="en" className={`${displayFont.variable} ${sansFont.variable}`}>
       <body>
         {s ? (
           <SponsorBar id={`s${s.id}`} label="Sponsored" text={s.headline || s.sponsor_name} href={`/go/${s.go_slug}`} />
