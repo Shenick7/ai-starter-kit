@@ -24,7 +24,27 @@ export const ISSUE_2: Omit<Issue, "siteUrl"> = {
   sponsor: null,
 };
 
-export const ISSUES: Omit<Issue, "siteUrl">[] = [ISSUE_1, ISSUE_2];
+export const ISSUE_3: Omit<Issue, "siteUrl"> = {
+  number: 3,
+  trickTitle: "Summarise any long message in 5 simple lines",
+  trickSteps: [
+    "Copy the long message, article or notice you want to understand.",
+    "Open Claude or Google Gemini on your phone — the free plan is enough.",
+    "Paste the text, then type: \"Summarise this in 5 simple lines in easy English.\"",
+    "Still not clear? Ask: \"Explain it like I am 12 years old.\"",
+    "Save the short version in your notes app — and check any dates, amounts or names against the original before you act on them.",
+  ],
+  picks: [
+    { name: "Claude", slug: "claude", line: "paste a long message and ask for a 5-line summary in simple English." },
+    { name: "Google Gemini", slug: "gemini", line: "free, and it can read long PDFs and web pages for you." },
+    { name: "Mistral", slug: "mistral", line: "a free chatbot that gives short, plain answers." },
+    { name: "Google AI Studio", slug: "google-ai-studio", line: "free, and it handles very long documents." },
+    { name: "Khanmigo", slug: "khanmigo", line: "ask it to explain any difficult paragraph in simple words, like a patient teacher." },
+  ],
+  sponsor: null,
+};
+
+export const ISSUES: Omit<Issue, "siteUrl">[] = [ISSUE_1, ISSUE_2, ISSUE_3];
 
 export function latestIssue(): Omit<Issue, "siteUrl"> {
   return ISSUES[ISSUES.length - 1];
