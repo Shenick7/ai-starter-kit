@@ -23,12 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Bundle (all packs). Price set by Shenick 26 Nov 2026: ₹999 for all packs.
-// The UPI link carries the amount, and the QR below is the same ₹999 code
-// the pack panels use (upi-qr-999.svg).
-const BUNDLE_UPI_LINK = "upi://pay?pa=9566977211@upi&pn=Shenick%20Jain&am=999&cu=INR";
-const BUNDLE_WA_TEXT = encodeURIComponent(`Hi Shenick, I want the bundle — all ${CATEGORY_COUNT} prompt packs (${(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts) for ₹999. I will attach my payment screenshot.`);
-
 export default function PromptsPage() {
   const crumbs = [
     { name: "Home", url: SITE_URL },
@@ -67,19 +61,6 @@ export default function PromptsPage() {
           </Link>
         </article>
       </div>
-      <article className="card featured" style={{ marginTop: 16 }}>
-        <h3>All {CATEGORY_COUNT} packs: {(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts</h3>
-        <p>Every prompt pack in one bundle — {(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts across all {CATEGORY_COUNT} categories. One-time payment, no subscription.</p>
-        <p><b>₹999</b> <span className="muted" style={{ fontSize: 14 }}>one-time payment for all {CATEGORY_COUNT} packs.</span></p>
-        <p style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
-          <a className="btn" href={BUNDLE_UPI_LINK}>Pay ₹999 via UPI</a>
-          <a className="btn ghost" href={`https://wa.me/919566977211?text=${BUNDLE_WA_TEXT}`} target="_blank" rel="noopener noreferrer">I’ve paid — send screenshot on WhatsApp</a>
-          <img src="/upi-qr-999.svg" alt="QR code to pay ₹999 via UPI for the bundle" width={120} height={120} />
-        </p>
-        <p className="muted" style={{ fontSize: 14 }}>
-          Pay by UPI, then send your payment screenshot on WhatsApp and Shenick shares all {CATEGORY_COUNT} pack files with you.
-        </p>
-      </article>
       <div className="prose">
         <h2>How to use these prompts</h2>
         <ul>
