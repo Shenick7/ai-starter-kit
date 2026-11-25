@@ -40,7 +40,9 @@ h2.sec{font-size:26px;margin:34px 0 12px}
 .box{background:#fff;border:2px solid var(--hard);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin:16px 0}
 form.f{display:grid;gap:10px;max-width:560px}form.f label{font-weight:600;font-size:14px;display:grid;gap:4px}
 form.f input,form.f select,form.f textarea{font:inherit;font-size:16px;padding:11px 12px;border:2px solid var(--hard);border-radius:var(--radius);background:#fff;width:100%}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.hp{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+/* Cookie notice bar (bottom of every page until dismissed). */
+.cookiebar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#171717;color:#f9fafb;font-size:14px}.cookiebar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 18px;flex-wrap:wrap}.cookiebar a{color:var(--accent);font-weight:600}.cookiebar p{margin:0}
 .note{font-size:14px;padding:10px 12px;border-radius:10px}.note.ok{background:#dcfce7;color:#14532d}.note.err{background:#fee2e2;color:#7f1d1d}
 .signup{background:#171717;color:#f9fafb;border:2px solid var(--hard);border-radius:var(--radius);padding:22px;margin:36px 0}.signup h2{margin:0 0 6px;font-size:26px}.signup p{margin:0 0 14px;color:#d1d5db}
 .signup form{display:flex;gap:12px;flex-wrap:wrap}.signup input[type=email]{flex:1 1 220px;min-width:0;font-size:16px;padding:12px 14px;border-radius:var(--radius);border:2px solid var(--hard);box-shadow:var(--shadow)}

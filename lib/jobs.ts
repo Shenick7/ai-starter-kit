@@ -11,7 +11,7 @@ export const JOBS: Job[] = [
   { phrase: "Write a polite email to my boss", tool: "chatgpt", keywords: ["email", "boss", "write"] },
   { phrase: "Make my resume look better", tool: "claude", keywords: ["resume", "cv", "rewrite"] },
   { phrase: "Fix my grammar", tool: "grammarly", keywords: ["grammar", "spelling", "proofread"] },
-  { phrase: "Summarize a long PDF", tool: "gemini-notebook", keywords: ["pdf", "summarize", "summarise", "summary"] },
+  { phrase: "Summarise a long PDF", tool: "gemini-notebook", keywords: ["pdf", "summarize", "summarise", "summary"] },
   { phrase: "Turn my notes into slides", tool: "gamma", keywords: ["slides", "presentation", "powerpoint", "notes"] },
   { phrase: "Turn a paragraph into a diagram", tool: "napkin", keywords: ["diagram", "flowchart", "infographic"] },
   { phrase: "Make a short video for Instagram", tool: "capcut", keywords: ["instagram", "reel", "reels", "short video"] },

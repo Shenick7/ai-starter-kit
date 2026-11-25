@@ -39,7 +39,7 @@ export default function About() {
       </p>
       <p>
         Our free-plan verdicts are editorial — they are never sold. A company can pay to be
-        featured on the site (see the <Link href="/sponsor">Sponsor</Link> page), but a featured
+        featured on the site (see the <Link href="/sponsor">Advertise</Link> page), but a featured
         listing is always clearly labelled, and no payment can change a free-plan verdict or
         buy a recommendation. Regular listings are free.
       </p>

@@ -10,6 +10,7 @@ const sansFont = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SponsorBar from "@/components/SponsorBar";
+import CookieNotice from "@/components/CookieNotice";
 import MainNav from "@/components/MainNav";
 import Pageview from "@/components/Pageview";
 import { activeSponsor } from "@/lib/db";
@@ -38,21 +39,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {s ? (
           <SponsorBar id={`s${s.id}`} label="Sponsored" text={s.headline || s.sponsor_name} href={`/go/${s.go_slug}`} />
         ) : (
-          <SponsorBar id="house1" label="Makers" text={`Built an AI tool? Feature it here from ${FEATURED_PRICE_LABEL}.`} href="/sponsor" />
+          <SponsorBar id="house1" label="Advertise" text={`Built an AI tool? Feature it here from ${FEATURED_PRICE_LABEL}.`} href="/sponsor" />
         )}
         <header className="top"><div className="wrap">
-          <Link href="/" className="logo">AI Starter<span>Kit</span></Link>
+          <Link href="/" className="logo">AI Starter <span>Kit</span></Link>
           <MainNav />
         </div></header>
         <main className="wrap">{children}</main>
         <footer className="ft"><div className="wrap">
           <div>© {new Date().getFullYear()} {SITE_NAME}. Free-plan info is checked against each tool's own pricing page; plans change, so always confirm before paying.</div>
-          <div className="row"><Link href="/learn">Learn</Link><Link href="/tools">All tools</Link><Link href="/prompts">Prompts</Link><Link href="/compare">Compare</Link><Link href="/submit">Submit a tool</Link><Link href="/sponsor">Advertise</Link><Link href="/contact">Contact</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
+          <div className="row"><Link href="/learn">Learn</Link><Link href="/tools">All tools</Link><Link href="/prompts">Prompts</Link><Link href="/compare">Compare</Link><Link href="/submit">Submit a tool</Link><Link href="/sponsor">Advertise</Link><Link href="/contact">Contact</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/refund-policy">Refund policy</Link></div>
           <div style={{ flexBasis: "100%", fontSize: 13 }}>A Shenick Jain product · <a href="https://x.com/Shenick_7" target="_blank" rel="noopener me">X</a> · <a href="https://instagram.com/shenick7" target="_blank" rel="noopener me">Instagram</a></div>
         </div></footer>
         <Pageview />
         <Analytics />
         <SpeedInsights />
+        <CookieNotice />
       </body>
     </html>
   );

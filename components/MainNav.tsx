@@ -23,7 +23,7 @@ export default function MainNav() {
         <Link href="/learn">Learn</Link>
         <Link href="/prompts">Prompts</Link>
         <Link href="/submit">Submit a tool</Link>
-        <Link href="/sponsor">Sponsor</Link>
+        <Link href="/sponsor">Advertise</Link>
         <Link href="/contact">Contact</Link>
       </nav>
     </>

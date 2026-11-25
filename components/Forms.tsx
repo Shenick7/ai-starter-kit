@@ -25,7 +25,7 @@ function useForm(url: string, okMsg: string) {
   return { s, onSubmit };
 }
 
-const Hp = () => <label className="hp" aria-hidden="true">Leave empty<input name="website" tabIndex={-1} autoComplete="off" /></label>;
+const Hp = () => <label className="hp" aria-hidden="true"><input name="website" tabIndex={-1} autoComplete="off" aria-label="Leave this field empty" /></label>;
 const Status = ({ s }: { s: State }) => s.kind === "ok" ? <p className="note ok" role="status">{s.msg}</p> : s.kind === "err" ? <p className="note err" role="alert">{s.msg}</p> : null;
 
 export function SignupForm({ source = "site" }: { source?: string }) {
@@ -90,7 +90,7 @@ export function InquiryForm() {
       <label>Interested in<select name="slot" defaultValue="featured">
         <option value="featured">Featured tool slot: {FEATURED_PRICE_LABEL}</option>
         <option value="bar">Site-wide bar slot: {BAR_PRICE_LABEL}</option>
-        <option value="newsletter">Newsletter sponsor: {NEWSLETTER_PRICE_LABEL}</option>
+        <option value="newsletter">Newsletter ad: {NEWSLETTER_PRICE_LABEL}</option>
         <option value="other">Something else</option>
       </select></label>
       <label>Message<textarea name="message" rows={4} maxLength={2000} /></label>

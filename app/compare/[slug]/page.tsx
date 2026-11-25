@@ -8,7 +8,7 @@ import ToolCard, { VerdictPill } from "@/components/ToolCard";
 import FaqBlock from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from "@/lib/jsonld";
-import { SITE_URL } from "@/lib/util";
+import { SITE_URL, FREE_PLAN_LAST_CHECKED } from "@/lib/util";
 
 export const revalidate = 300;
 export function generateStaticParams() { return COMPARISONS.map((c) => ({ slug: c.slug })); }
@@ -63,7 +63,7 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
       </div>
       <div className="grid">{tools.map((t) => <ToolCard key={t.slug} t={t} />)}</div>
       <div className="prose"><FaqBlock faqs={c.faqs} /></div>
-      <p className="muted" style={{ marginTop: 20 }}>Free-plan details change often — each tool page links to the tool's own pricing page, checked Nov 2026.</p>
+      <p className="muted" style={{ marginTop: 20 }}>Free-plan details change often — each tool page links to the tool's own pricing page, checked {FREE_PLAN_LAST_CHECKED}.</p>
     </>
   );
 }

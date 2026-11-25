@@ -9,7 +9,7 @@ import FaqBlock from "@/components/Faq";
 import { toolFaqs } from "@/lib/faq";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd, softwareApplicationJsonLd } from "@/lib/jsonld";
-import { SITE_URL } from "@/lib/util";
+import { SITE_URL, FREE_PLAN_LAST_CHECKED } from "@/lib/util";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return (await getEntries()).map((e) => ({ slug: e.slug })); }
@@ -47,7 +47,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
       <h2>How to start in 5 minutes</h2><ol>{t.start.map((s, i) => <li key={i}>{s}</li>)}</ol>
       <h2>Is the free plan enough?</h2>
       <div className="box"><p><b>{t.verdictNote}</b></p><p>{t.freePlan}</p>
-        <p className="muted" style={{ fontSize: 14 }}>Source: <a href={t.sourceUrl} rel="nofollow noopener" target="_blank">{t.name}'s own pricing page</a>, checked Nov 2026. Plans change; confirm before you pay.</p></div>
+        <p className="muted" style={{ fontSize: 14 }}>Source: <a href={t.sourceUrl} rel="nofollow noopener" target="_blank">{t.name}'s own pricing page</a>, checked {FREE_PLAN_LAST_CHECKED}. Plans change; confirm before you pay.</p></div>
       {related.length > 0 && <><h2>Similar tools</h2><div className="grid">{related.map((r) => <ToolCard key={r.slug} t={r} />)}</div></>}
       <FaqBlock faqs={faqs} />
     </div>

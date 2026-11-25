@@ -10,7 +10,18 @@ export const metadata: Metadata = {
   title: "300 free copy-ready AI prompts for beginners",
   description: "300 free original prompts in 12 categories — Art, Business, Design, Finance, HR, Health, Learning, Legal, Marketing, SEO, Social Media and Writing. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up. Each category also has a 1,000-prompt pack for ₹999.",
   alternates: { canonical: "/prompts" },
+  openGraph: {
+    title: "300 free copy-ready AI prompts for beginners",
+    description: "300 free original prompts in 12 categories. Copy one into any AI tool and go — plus 1,000-prompt packs for ₹999.",
+    images: [{ url: "/opengraph-image", alt: "300 free AI prompts for beginners — copy one into any AI tool" }],
+  },
 };
+
+// Bundle (all 12 packs). Price is still a TODO — the UPI link has no amount
+// on purpose, so the buyer enters the amount only after Shenick confirms
+// the price on WhatsApp.
+const BUNDLE_UPI_LINK = "upi://pay?pa=9566977211@upi&pn=Shenick%20Jain&cu=INR";
+const BUNDLE_WA_TEXT = encodeURIComponent("Hi Shenick, I want the bundle — all 12 prompt packs (12,000 prompts). What is the price? I will attach my payment screenshot.");
 
 export default function PromptsPage() {
   const crumbs = [
@@ -35,6 +46,7 @@ export default function PromptsPage() {
           <article key={c.slug} className="card">
             <Link href={`/prompts/${c.slug}`} className="card-link">
               <h3>{c.emoji} {c.label}</h3>
+              {c.caption ? <p className="muted" style={{ fontStyle: "italic" }}>{c.caption}</p> : null}
               <p>{c.blurb}</p>
               <small className="muted">25 free prompts →</small>
               <br />
@@ -49,6 +61,18 @@ export default function PromptsPage() {
           </Link>
         </article>
       </div>
+      <article className="card featured" style={{ marginTop: 16 }}>
+        <h3>All 12 packs: 12,000 prompts</h3>
+        <p>Every prompt pack in one bundle — 12,000 prompts across all 12 categories. One-time payment, no subscription.</p>
+        <p><b>₹[TODO price]</b> <span className="muted" style={{ fontSize: 14 }}>TODO: set the bundle price.</span></p>
+        <p style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+          <a className="btn" href={BUNDLE_UPI_LINK}>Pay via UPI</a>
+          <a className="btn ghost" href={`https://wa.me/919566977211?text=${BUNDLE_WA_TEXT}`} target="_blank" rel="noopener noreferrer">I’ve paid — send screenshot on WhatsApp</a>
+        </p>
+        <p className="muted" style={{ fontSize: 14 }}>
+          Pay by UPI, then send your payment screenshot on WhatsApp and Shenick shares all 12 pack files with you. TODO: confirm the bundle price and delivery before selling. (A QR code will be added once the price is set.)
+        </p>
+      </article>
       <div className="prose">
         <h2>How to use these prompts</h2>
         <ul>

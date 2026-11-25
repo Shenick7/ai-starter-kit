@@ -20,19 +20,22 @@ export default function Privacy() {
         <li><b>Email addresses</b> — only when you type one in: to join the newsletter, send a message through the contact form, submit a tool, or enquire about sponsorship.</li>
         <li><b>Hashed IP addresses</b> — when you use a form, we store a one-way hash of your IP address (not the address itself). We use it only to limit spam, for example to stop one address submitting a form dozens of times an hour.</li>
         <li><b>Referrers and pageviews</b> — when you visit a page, we count the visit and note which page sent you here (the referrer), if your browser shares it. These counts are approximate and are used to see which pages people read. We do not track you across other websites.</li>
-        <li><b>Messages you send us</b> — the text of contact messages, tool submissions and sponsorship enquiries, so we can read and reply to them.</li>
+        <li><b>Messages you send us</b> — the text of contact messages, tool submissions and advertising enquiries, so we can read and reply to them.</li>
       </ul>
 
       <h2>What we do not collect</h2>
       <p>
-        We do not use Google Analytics or any other third-party tracker. We do not collect your
+        We do not use Google Analytics. We do use Vercel Analytics and Vercel Speed Insights
+        to count page visits and measure how fast pages load. They do not use cookies and do
+        not track you across other websites. Our forms use Cloudflare Turnstile to block spam,
+        which may set a cookie in your browser. We do not collect your
         name, location, or device details beyond what is listed above. We do not sell your data
         to anyone, and we do not share it with advertisers.
       </p>
       <p>
-        The only thing stored in your own browser is a small setting that remembers whether you
-        dismissed the sponsor bar at the top of the page. That stays on your device and is never
-        sent to us.
+        Two small settings are stored in your own browser: whether you dismissed the sponsor bar
+        at the top of the page, and whether you dismissed the cookie notice at the bottom. Both
+        stay on your device and are never sent to us.
       </p>
 
       <h2>Where your data is stored</h2>

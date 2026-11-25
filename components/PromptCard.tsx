@@ -44,7 +44,7 @@ export default function PromptCard({ prompt }: { prompt: Prompt }) {
       <h3>{prompt.title}</h3>
       <p className="prompt">{prompt.text}</p>
       <button type="button" className={`btn ghost copybtn${copied ? " copied" : ""}`} onClick={onCopy} aria-label={`Copy prompt: ${prompt.title}`}>
-        {copied ? "✓ Copied" : "Copy prompt"}
+        {copied ? "Copied!" : "Copy"}
       </button>
     </article>
   );

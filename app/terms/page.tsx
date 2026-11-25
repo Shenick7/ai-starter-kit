@@ -51,16 +51,23 @@ export default function Terms() {
 
       <h2>Using our forms</h2>
       <p>
-        Do not use our submit, contact, newsletter or sponsorship forms to send spam, abusive
+        Do not use our submit, contact, newsletter or advertising forms to send spam, abusive
         content, or someone else&rsquo;s personal details. We may ignore or delete submissions
         that do.
       </p>
 
-      <h2>Sponsored listings</h2>
+      <h2>Advertising</h2>
       <p>
         A company can pay to be featured on this site. Featured listings are always clearly
         labelled. A payment cannot buy a recommendation and cannot change a free-plan verdict.
-        See the <Link href="/sponsor">Sponsor</Link> page for details.
+        See the <Link href="/sponsor">Advertise</Link> page for details.
+      </p>
+
+      <h2>Prompt packs: licence</h2>
+      <p>
+        If you buy a prompt pack, you may use the prompts for your own personal and business
+        work. You may not resell the pack, share the pack file with others, or publish the
+        prompts as your own work.
       </p>
 
       <h2>Changes</h2>

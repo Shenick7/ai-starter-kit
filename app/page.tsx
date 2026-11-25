@@ -52,7 +52,7 @@ export default async function Home() {
       <div className="grid">
         {featured ? (
           <article className="card featured">
-            <span className="pill">Featured</span>
+            <span className="pill">Sponsored</span>
             <h3><a href={`/go/${featured.go_slug}`} rel="sponsored noopener">{featured.sponsor_name}</a></h3>
             <p>{featured.headline || featuredEntry?.tagline}</p>
           </article>

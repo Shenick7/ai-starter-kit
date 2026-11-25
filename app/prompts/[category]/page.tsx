@@ -62,7 +62,7 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
           <PromptCard key={p.id} prompt={p} />
         ))}
       </div>
-      <PackBuyPanel label={c.label} previewTitles={previewTitles} />
+      <PackBuyPanel label={c.label} slug={c.slug} previewTitles={previewTitles} />
       <div className="prose">
         <h2>More prompts</h2>
         <p>

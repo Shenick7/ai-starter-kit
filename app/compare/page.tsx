@@ -19,6 +19,7 @@ export default function CompareIndex() {
         <p className="crumbs"><Link href="/">Home</Link> / Compare</p>
         <h1>Compare AI tools</h1>
         <p className="muted">Side-by-side comparisons of the tools beginners ask about most. Every fact here comes from the tool's own page — free plans, what each is best for, and how to start in 5 minutes.</p>
+        <p className="muted">More comparisons coming soon — for now, here is the one beginners ask about most.</p>
       </div>
       <div className="grid" style={{ marginTop: 18 }}>
         {COMPARISONS.map((c) => (

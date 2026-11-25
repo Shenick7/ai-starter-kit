@@ -12,7 +12,7 @@ export default function SponsorBar({ text, href, label, id }: { text: string; hr
   return (
     <div className="sbar" role="region" aria-label="Sponsor">
       <div className="wrap">
-        <div><span className="lbl">{label}</span>{text} <a href={href}>Learn more →</a></div>
+        <div><span className="lbl">{label}</span>{" · "}{text} <a href={href}>Learn more →</a></div>
         <button aria-label="Close sponsor bar" onClick={() => { setOpen(false); try { localStorage.setItem(key, "1"); } catch {} }}>×</button>
       </div>
     </div>

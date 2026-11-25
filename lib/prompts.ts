@@ -9,6 +9,9 @@ export type PromptCategory = {
   label: string;
   emoji: string;
   blurb: string;
+  // One catchy caption under the category title on the prompts page.
+  // TODO (Shenick): send the 12 captions; add each one as caption: "...".
+  caption?: string;
 };
 
 export type Prompt = {
@@ -19,18 +22,18 @@ export type Prompt = {
 };
 
 export const PROMPT_CATEGORIES: PromptCategory[] = [
-  { slug: "art", label: "Art", emoji: "🎨", blurb: "Ideas, styles and inspiration for drawings, paintings and crafts." },
-  { slug: "business", label: "Business", emoji: "💼", blurb: "Plans, ideas and everyday help for small businesses." },
-  { slug: "design", label: "Design", emoji: "🖌️", blurb: "Logos, posters, colours and layouts that look professional." },
-  { slug: "finance", label: "Finance", emoji: "💰", blurb: "Budgets, saving, investing and money explained simply." },
-  { slug: "hr", label: "HR", emoji: "👥", blurb: "Hiring, interviews, job posts and team messages." },
-  { slug: "health", label: "Health", emoji: "💪", blurb: "Meal plans, workouts and healthy everyday habits." },
-  { slug: "learning", label: "Learning", emoji: "📚", blurb: "Study plans, simple explanations and exam practice." },
-  { slug: "legal", label: "Legal", emoji: "⚖️", blurb: "Everyday legal letters and documents, explained simply." },
-  { slug: "marketing", label: "Marketing", emoji: "📣", blurb: "Ads, offers and campaigns that bring customers in." },
-  { slug: "seo", label: "SEO", emoji: "🔍", blurb: "Help people find your website on Google." },
-  { slug: "social-media", label: "Social Media", emoji: "📱", blurb: "Posts, captions and reels for Instagram, YouTube and more." },
-  { slug: "writing", label: "Writing", emoji: "✍️", blurb: "Emails, stories, speeches and anything in words." },
+  { slug: "art", label: "Art", emoji: "🎨", blurb: "Ideas, styles and inspiration for drawings, paintings and crafts.", caption: "" }, // TODO: catchy caption for Art
+  { slug: "business", label: "Business", emoji: "💼", blurb: "Plans, ideas and everyday help for small businesses.", caption: "" }, // TODO: catchy caption for Business
+  { slug: "design", label: "Design", emoji: "🖌️", blurb: "Logos, posters, colours and layouts that look professional.", caption: "" }, // TODO: catchy caption for Design
+  { slug: "finance", label: "Finance", emoji: "💰", blurb: "Budgets, saving, investing and money explained simply.", caption: "" }, // TODO: catchy caption for Finance
+  { slug: "hr", label: "HR", emoji: "👥", blurb: "Hiring, interviews, job posts and team messages.", caption: "" }, // TODO: catchy caption for HR
+  { slug: "health", label: "Health", emoji: "💪", blurb: "Meal plans, workouts and healthy everyday habits.", caption: "" }, // TODO: catchy caption for Health
+  { slug: "learning", label: "Learning", emoji: "📚", blurb: "Study plans, simple explanations and exam practice.", caption: "" }, // TODO: catchy caption for Learning
+  { slug: "legal", label: "Legal", emoji: "⚖️", blurb: "Everyday legal letters and documents, explained simply.", caption: "" }, // TODO: catchy caption for Legal
+  { slug: "marketing", label: "Marketing", emoji: "📣", blurb: "Ads, offers and campaigns that bring customers in.", caption: "" }, // TODO: catchy caption for Marketing
+  { slug: "seo", label: "SEO", emoji: "🔍", blurb: "Help people find your website on Google.", caption: "" }, // TODO: catchy caption for SEO
+  { slug: "social-media", label: "Social Media", emoji: "📱", blurb: "Posts, captions and reels for Instagram, YouTube and more.", caption: "" }, // TODO: catchy caption for Social Media
+  { slug: "writing", label: "Writing", emoji: "✍️", blurb: "Emails, stories, speeches and anything in words.", caption: "" }, // TODO: catchy caption for Writing
 ];
 
 export function getPromptCategory(slug: string): PromptCategory | undefined {

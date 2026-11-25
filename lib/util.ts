@@ -4,6 +4,9 @@ import { NextRequest } from "next/server";
 export { FEATURED_PRICE_USD, FEATURED_PRICE_INR, FEATURED_PRICE_LABEL, BAR_PRICE_USD, BAR_PRICE_INR, BAR_PRICE_LABEL, NEWSLETTER_PRICE_USD, NEWSLETTER_PRICE_INR, NEWSLETTER_PRICE_LABEL, SPONSOR_PRICE_LABEL, SPONSOR_DEFAULT_PRICE_INR } from "./prices";
 
 export const SITE_NAME = "AI Starter Kit";
+// TODO (Shenick): update this date whenever you re-check the free plans.
+// It shows under every free-plan verdict on the tool cards and tool pages.
+export const FREE_PLAN_LAST_CHECKED = "Nov 2026";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")).replace(/\/$/, "");
 export const OWNER_EMAIL = "jainshenick@gmail.com"; // the only address the site may ever notify
 
