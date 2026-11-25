@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { PROMPT_CATEGORIES, getPromptCategory, promptsByCategory } from "@/lib/prompts";
+import { PROMPT_CATEGORIES, getPromptCategory, freePromptsByCategory, previewPromptsByCategory } from "@/lib/prompts";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/util";
 import PromptCard from "@/components/PromptCard";
+import PackBuyPanel from "@/components/PackBuyPanel";
 
 export function generateStaticParams() {
   return PROMPT_CATEGORIES.map((c) => ({ category: c.slug }));
@@ -16,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const c = getPromptCategory(category);
   return c
     ? {
-        title: `275 ${c.label} prompts that work in any AI`,
-        description: `275 original ${c.label.toLowerCase()} prompts for beginners. ${c.blurb} Copy one and paste it into ChatGPT, Claude, Gemini or any AI tool. Free, no sign-up.`,
+        title: `25 free ${c.label} prompts that work in any AI`,
+        description: `25 free original ${c.label.toLowerCase()} prompts for beginners. ${c.blurb} Copy one and paste it into ChatGPT, Claude, Gemini or any AI tool. Free, no sign-up. The full 1,000-prompt pack is ₹999.`,
         alternates: { canonical: `/prompts/${c.slug}` },
-        openGraph: { title: `275 ${c.label} prompts`, description: c.blurb },
+        openGraph: { title: `25 free ${c.label} prompts`, description: c.blurb },
       }
     : {};
 }
@@ -33,7 +34,8 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
   const { category } = await params;
   const c = getPromptCategory(category);
   if (!c) notFound();
-  const prompts = promptsByCategory(c.slug);
+  const prompts = freePromptsByCategory(c.slug);
+  const previewTitles = previewPromptsByCategory(c.slug).map((p) => p.title);
   const crumbs = [
     { name: "Home", url: SITE_URL },
     { name: "Prompts", url: `${SITE_URL}/prompts` },
@@ -50,6 +52,9 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
         <p>
           These prompts work in any AI — ChatGPT, Claude, Gemini and others. Copy one, paste it into your favourite AI tool, and replace the [bracketed] parts with your own details.
         </p>
+        <p>
+          The 25 prompts below are free. Want all 1,000 {c.label.toLowerCase()} prompts? The full pack is ₹999 — see below.
+        </p>
         {CATEGORY_NOTES[c.slug] && <p className="note ok">{CATEGORY_NOTES[c.slug]}</p>}
       </div>
       <div className="grid">
@@ -57,6 +62,7 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
           <PromptCard key={p.id} prompt={p} />
         ))}
       </div>
+      <PackBuyPanel label={c.label} previewTitles={previewTitles} />
       <div className="prose">
         <h2>More prompts</h2>
         <p>

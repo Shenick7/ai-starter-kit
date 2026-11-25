@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { PROMPTS, PROMPT_CATEGORIES, promptsByCategory } from "@/lib/prompts";
+import { FREE_PROMPTS, PROMPT_CATEGORIES } from "@/lib/prompts";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/util";
 import PromptsSearch from "@/components/PromptsSearch";
 
 export const metadata: Metadata = {
-  title: "3,300 copy-ready AI prompts for beginners",
-  description: "300 original prompts in 12 categories — Art, Business, Design, Finance, HR, Health, Learning, Legal, Marketing, SEO, Social Media and Writing. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up.",
+  title: "300 free copy-ready AI prompts for beginners",
+  description: "300 free original prompts in 12 categories — Art, Business, Design, Finance, HR, Health, Learning, Legal, Marketing, SEO, Social Media and Writing. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up. Each category also has a 1,000-prompt pack for ₹999.",
   alternates: { canonical: "/prompts" },
 };
 
@@ -23,12 +23,12 @@ export default function PromptsPage() {
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <p className="crumbs"><Link href="/">Home</Link> / Prompts</p>
       <div className="prose">
-        <h1>3,300 prompts that work in any AI</h1>
+        <h1>300 free prompts that work in any AI</h1>
         <p className="muted" style={{ fontSize: 19 }}>
-          Copy a prompt, paste it into ChatGPT, Claude, Gemini or any other AI tool, and replace the [bracketed] parts with your own details. No sign-up, no payment — just useful words.
+          Copy a prompt, paste it into ChatGPT, Claude, Gemini or any other AI tool, and replace the [bracketed] parts with your own details. No sign-up, no payment — just useful words. Want more? Every category has a 1,000-prompt pack for ₹999.
         </p>
       </div>
-      <PromptsSearch prompts={PROMPTS} />
+      <PromptsSearch prompts={FREE_PROMPTS} />
       <h2 className="sec">Browse by category</h2>
       <div className="grid">
         {PROMPT_CATEGORIES.map((c) => (
@@ -36,7 +36,9 @@ export default function PromptsPage() {
             <Link href={`/prompts/${c.slug}`} className="card-link">
               <h3>{c.emoji} {c.label}</h3>
               <p>{c.blurb}</p>
-              <small className="muted">{promptsByCategory(c.slug).length} prompts →</small>
+              <small className="muted">25 free prompts →</small>
+              <br />
+              <small className="muted">1,000-prompt pack — ₹999</small>
             </Link>
           </article>
         ))}

@@ -109,7 +109,7 @@ export default function PromptGeneratorPage() {
       <div className="prose">
         <h2>Want ready-made prompts?</h2>
         <p>
-          <Link href="/prompts">Browse all 3,300 prompts →</Link>
+          <Link href="/prompts">Browse all 300 free prompts →</Link>
         </p>
       </div>
     </div>
