@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const c = getPromptCategory(category);
   return c
     ? {
-        title: `25 ${c.label} prompts that work in any AI`,
-        description: `25 original ${c.label.toLowerCase()} prompts for beginners. ${c.blurb} Copy one and paste it into ChatGPT, Claude, Gemini or any AI tool. Free, no sign-up.`,
+        title: `275 ${c.label} prompts that work in any AI`,
+        description: `275 original ${c.label.toLowerCase()} prompts for beginners. ${c.blurb} Copy one and paste it into ChatGPT, Claude, Gemini or any AI tool. Free, no sign-up.`,
         alternates: { canonical: `/prompts/${c.slug}` },
-        openGraph: { title: `25 ${c.label} prompts`, description: c.blurb },
+        openGraph: { title: `275 ${c.label} prompts`, description: c.blurb },
       }
     : {};
 }

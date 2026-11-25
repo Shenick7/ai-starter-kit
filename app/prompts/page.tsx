@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/util";
 import PromptsSearch from "@/components/PromptsSearch";
 
 export const metadata: Metadata = {
-  title: "300 copy-ready AI prompts for beginners",
+  title: "3,300 copy-ready AI prompts for beginners",
   description: "300 original prompts in 12 categories — Art, Business, Design, Finance, HR, Health, Learning, Legal, Marketing, SEO, Social Media and Writing. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up.",
   alternates: { canonical: "/prompts" },
 };
@@ -23,7 +23,7 @@ export default function PromptsPage() {
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <p className="crumbs"><Link href="/">Home</Link> / Prompts</p>
       <div className="prose">
-        <h1>300 prompts that work in any AI</h1>
+        <h1>3,300 prompts that work in any AI</h1>
         <p className="muted" style={{ fontSize: 19 }}>
           Copy a prompt, paste it into ChatGPT, Claude, Gemini or any other AI tool, and replace the [bracketed] parts with your own details. No sign-up, no payment — just useful words.
         </p>
