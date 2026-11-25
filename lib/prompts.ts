@@ -8,19 +8,19 @@ import type { Prompt, PromptCategory } from "./prompt-types";
 export type { Prompt, PromptCategory } from "./prompt-types";
 
 export const PROMPT_CATEGORIES: PromptCategory[] = [
-  { slug: "art", label: "Art", emoji: "🎨", blurb: "Ideas, styles and inspiration for drawings, paintings and crafts.", caption: "" }, // TODO: catchy caption for Art
-  { slug: "business", label: "Business", emoji: "💼", blurb: "Plans, ideas and everyday help for small businesses.", caption: "" }, // TODO: catchy caption for Business
-  { slug: "design", label: "Design", emoji: "🖌️", blurb: "Logos, posters, colours and layouts that look professional.", caption: "" }, // TODO: catchy caption for Design
-  { slug: "finance", label: "Finance", emoji: "💰", blurb: "Budgets, saving, investing and money explained simply.", caption: "" }, // TODO: catchy caption for Finance
-  { slug: "hr", label: "HR", emoji: "👥", blurb: "Hiring, interviews, job posts and team messages.", caption: "" }, // TODO: catchy caption for HR
-  { slug: "health", label: "Health", emoji: "💪", blurb: "Meal plans, workouts and healthy everyday habits.", caption: "" }, // TODO: catchy caption for Health
-  { slug: "learning", label: "Learning", emoji: "📚", blurb: "Study plans, simple explanations and exam practice.", caption: "" }, // TODO: catchy caption for Learning
-  { slug: "legal", label: "Legal", emoji: "⚖️", blurb: "Everyday legal letters and documents, explained simply.", caption: "" }, // TODO: catchy caption for Legal
-  { slug: "marketing", label: "Marketing", emoji: "📣", blurb: "Ads, offers and campaigns that bring customers in.", caption: "" }, // TODO: catchy caption for Marketing
-  { slug: "seo", label: "SEO", emoji: "🔍", blurb: "Help people find your website on Google.", caption: "" }, // TODO: catchy caption for SEO
-  { slug: "social-media", label: "Social Media", emoji: "📱", blurb: "Posts, captions and reels for Instagram, YouTube and more.", caption: "" }, // TODO: catchy caption for Social Media
-  { slug: "writing", label: "Writing", emoji: "✍️", blurb: "Emails, stories, speeches and anything in words.", caption: "" }, // TODO: catchy caption for Writing
-  { slug: "photo", label: "Photo", emoji: "📸", blurb: "Realistic AI photos and portraits — couples, family, festivals, travel and more.", caption: "" }, // TODO: catchy caption for Photo
+  { slug: "art", label: "Art", emoji: "🎨", blurb: "Ideas, styles and inspiration for drawings, paintings and crafts.", caption: "Draw it, paint it, make it yours." },
+  { slug: "business", label: "Business", emoji: "💼", blurb: "Plans, ideas and everyday help for small businesses.", caption: "Small business, big ideas." },
+  { slug: "design", label: "Design", emoji: "🖌️", blurb: "Logos, posters, colours and layouts that look professional.", caption: "Make it look like a pro made it." },
+  { slug: "finance", label: "Finance", emoji: "💰", blurb: "Budgets, saving, investing and money explained simply.", caption: "Money, made simple." },
+  { slug: "hr", label: "HR", emoji: "👥", blurb: "Hiring, interviews, job posts and team messages.", caption: "Hire well, write it right." },
+  { slug: "health", label: "Health", emoji: "💪", blurb: "Meal plans, workouts and healthy everyday habits.", caption: "Feel better, one small step at a time." },
+  { slug: "learning", label: "Learning", emoji: "📚", blurb: "Study plans, simple explanations and exam practice.", caption: "Learn it once, remember it forever." },
+  { slug: "legal", label: "Legal", emoji: "⚖️", blurb: "Everyday legal letters and documents, explained simply.", caption: "Paperwork, without the headache." },
+  { slug: "marketing", label: "Marketing", emoji: "📣", blurb: "Ads, offers and campaigns that bring customers in.", caption: "Get noticed, get customers." },
+  { slug: "seo", label: "SEO", emoji: "🔍", blurb: "Help people find your website on Google.", caption: "Be the first name on Google." },
+  { slug: "social-media", label: "Social Media", emoji: "📱", blurb: "Posts, captions and reels for Instagram, YouTube and more.", caption: "Posts people actually stop for." },
+  { slug: "writing", label: "Writing", emoji: "✍️", blurb: "Emails, stories, speeches and anything in words.", caption: "The right words, ready to copy." },
+  { slug: "photo", label: "Photo", emoji: "📸", blurb: "Realistic AI photos and portraits — couples, family, festivals, travel and more.", caption: "Turn your photos into movie scenes." },
 ];
 
 export function getPromptCategory(slug: string): PromptCategory | undefined {
