@@ -66,7 +66,7 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
       <div className="prose">
         <h2>More prompts</h2>
         <p>
-          <Link href="/prompts">Browse all 12 categories →</Link> · <Link href="/prompts/generator">Make your own prompt →</Link>
+          <Link href="/prompts">Browse all {PROMPT_CATEGORIES.length} categories →</Link> · <Link href="/prompts/generator">Make your own prompt →</Link>
         </p>
       </div>
     </div>

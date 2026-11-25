@@ -76,7 +76,7 @@ export default function PromptsPage() {
           <a className="btn ghost" href={`https://wa.me/919566977211?text=${BUNDLE_WA_TEXT}`} target="_blank" rel="noopener noreferrer">I’ve paid — send screenshot on WhatsApp</a>
         </p>
         <p className="muted" style={{ fontSize: 14 }}>
-          Pay by UPI, then send your payment screenshot on WhatsApp and Shenick shares all 12 pack files with you. TODO: confirm the bundle price and delivery before selling. (A QR code will be added once the price is set.)
+          Pay by UPI, then send your payment screenshot on WhatsApp and Shenick shares all {CATEGORY_COUNT} pack files with you. TODO: confirm the bundle price and delivery before selling. (A QR code will be added once the price is set.)
         </p>
       </article>
       <div className="prose">
