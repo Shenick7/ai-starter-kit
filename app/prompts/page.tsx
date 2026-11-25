@@ -6,22 +6,28 @@ import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/util";
 import PromptsSearch from "@/components/PromptsSearch";
 
+// Counts are derived from the data, so adding a category updates them
+// everywhere on this page automatically.
+const FREE_COUNT = FREE_PROMPTS.length;
+const CATEGORY_COUNT = PROMPT_CATEGORIES.length;
+const CATEGORY_NAMES = PROMPT_CATEGORIES.map((c) => c.label).join(", ").replace(/, ([^,]*)$/, " and $1");
+
 export const metadata: Metadata = {
-  title: "300 free copy-ready AI prompts for beginners",
-  description: "300 free original prompts in 12 categories — Art, Business, Design, Finance, HR, Health, Learning, Legal, Marketing, SEO, Social Media and Writing. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up. Each category also has a 1,000-prompt pack for ₹999.",
+  title: `${FREE_COUNT} free copy-ready AI prompts for beginners`,
+  description: `${FREE_COUNT} free original prompts in ${CATEGORY_COUNT} categories — ${CATEGORY_NAMES}. Copy one, paste it into any AI tool, and get a useful answer. Free, no sign-up. Each category also has a 1,000-prompt pack for ₹999.`,
   alternates: { canonical: "/prompts" },
   openGraph: {
-    title: "300 free copy-ready AI prompts for beginners",
-    description: "300 free original prompts in 12 categories. Copy one into any AI tool and go — plus 1,000-prompt packs for ₹999.",
-    images: [{ url: "/opengraph-image", alt: "300 free AI prompts for beginners — copy one into any AI tool" }],
+    title: `${FREE_COUNT} free copy-ready AI prompts for beginners`,
+    description: `${FREE_COUNT} free original prompts in ${CATEGORY_COUNT} categories. Copy one into any AI tool and go — plus 1,000-prompt packs for ₹999.`,
+    images: [{ url: "/opengraph-image", alt: `${FREE_COUNT} free AI prompts for beginners — copy one into any AI tool` }],
   },
 };
 
-// Bundle (all 12 packs). Price is still a TODO — the UPI link has no amount
+// Bundle (all packs). Price is still a TODO — the UPI link has no amount
 // on purpose, so the buyer enters the amount only after Shenick confirms
 // the price on WhatsApp.
 const BUNDLE_UPI_LINK = "upi://pay?pa=9566977211@upi&pn=Shenick%20Jain&cu=INR";
-const BUNDLE_WA_TEXT = encodeURIComponent("Hi Shenick, I want the bundle — all 12 prompt packs (12,000 prompts). What is the price? I will attach my payment screenshot.");
+const BUNDLE_WA_TEXT = encodeURIComponent(`Hi Shenick, I want the bundle — all ${CATEGORY_COUNT} prompt packs (${(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts). What is the price? I will attach my payment screenshot.`);
 
 export default function PromptsPage() {
   const crumbs = [
@@ -34,7 +40,7 @@ export default function PromptsPage() {
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <p className="crumbs"><Link href="/">Home</Link> / Prompts</p>
       <div className="prose">
-        <h1>300 free prompts that work in any AI</h1>
+        <h1>{FREE_COUNT} free prompts that work in any AI</h1>
         <p className="muted" style={{ fontSize: 19 }}>
           Copy a prompt, paste it into ChatGPT, Claude, Gemini or any other AI tool, and replace the [bracketed] parts with your own details. No sign-up, no payment — just useful words. Want more? Every category has a 1,000-prompt pack for ₹999.
         </p>
@@ -62,8 +68,8 @@ export default function PromptsPage() {
         </article>
       </div>
       <article className="card featured" style={{ marginTop: 16 }}>
-        <h3>All 12 packs: 12,000 prompts</h3>
-        <p>Every prompt pack in one bundle — 12,000 prompts across all 12 categories. One-time payment, no subscription.</p>
+        <h3>All {CATEGORY_COUNT} packs: {(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts</h3>
+        <p>Every prompt pack in one bundle — {(CATEGORY_COUNT * 1000).toLocaleString("en-IN")} prompts across all {CATEGORY_COUNT} categories. One-time payment, no subscription.</p>
         <p><b>₹[TODO price]</b> <span className="muted" style={{ fontSize: 14 }}>TODO: set the bundle price.</span></p>
         <p style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
           <a className="btn" href={BUNDLE_UPI_LINK}>Pay via UPI</a>

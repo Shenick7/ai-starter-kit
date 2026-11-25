@@ -5,7 +5,7 @@ import type { Prompt } from "@/lib/prompts";
 import { getPromptCategory } from "@/lib/prompts";
 import PromptCard from "@/components/PromptCard";
 
-// Live search across the 300 free prompts (title, text and category). Results
+// Live search across the free prompts (title, text and category). Results
 // only appear once the visitor types at least 2 characters, so the index
 // page stays light until they search.
 export default function PromptsSearch({ prompts }: { prompts: Prompt[] }) {
@@ -31,7 +31,7 @@ export default function PromptsSearch({ prompts }: { prompts: Prompt[] }) {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search 300 free prompts, e.g. “job email” or “Diwali poster”"
+          placeholder={`Search ${prompts.length} free prompts, e.g. “job email” or “Diwali poster”`}
           aria-label="Search prompts"
         />
       </form>

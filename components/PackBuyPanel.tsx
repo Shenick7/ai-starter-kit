@@ -73,6 +73,11 @@ const PREVIEW_SAMPLES: Record<string, { title: string; text: string }[]> = {
     { title: "TODO: sample prompt 2", text: "TODO: paste a real prompt from the Writing pack here." },
     { title: "TODO: sample prompt 3", text: "TODO: paste a real prompt from the Writing pack here." },
   ],
+  photo: [
+    { title: "TODO: sample prompt 1", text: "TODO: paste a real prompt from the Photo pack here." },
+    { title: "TODO: sample prompt 2", text: "TODO: paste a real prompt from the Photo pack here." },
+    { title: "TODO: sample prompt 3", text: "TODO: paste a real prompt from the Photo pack here." },
+  ],
 };
 
 // Buyer reviews. The "What buyers say" section stays hidden until at least
