@@ -205,6 +205,11 @@ const PREVIEW_SAMPLES: Record<string, { title: string; text: string }[]> = {
     { title: "How to keep bath time calm and private", text: "Suggest ways to make bath time calm and private for my [elderly father]. Explain how to close the door, keep only the needed items nearby, talk softly, and let him do what he can himself. Add ideas for days when he feels shy or upset." },
     { title: "A simple bath checklist for daily care", text: "Make a simple daily bath checklist for caring for my [elderly mother] at home. List everything to prepare before the bath, the steps during the bath, and what to check afterwards. Keep it short enough to stick on the bathroom wall." },
   ],
+  "productivity": [
+    { title: "A task list for a student before exams", text: "Make a task list for a school student in [class] who has exams in [number] weeks. Include revision, sample papers, and rest breaks, spread across the day. Keep the list simple, with no more than eight tasks, and add a tick box beside each one." },
+    { title: "A list for a homemaker's full day at home", text: "Make a task list for a homemaker in [your city] for a full day at home. Cover cooking, cleaning, children's school work, and one hour of rest. Put the tasks in time order, keep them short, and leave one free hour in the afternoon." },
+    { title: "A task list for a farmer's market day", text: "Make a task list for a farmer going to the mandi in [your town] tomorrow. Include loading the produce, checking prices, carrying cash and bags, selling, and buying seeds on the way back. Order the tasks by time and keep the list short and clear." },
+  ],
 };
 
 // Buyer reviews. The "What buyers say" section stays hidden until at least

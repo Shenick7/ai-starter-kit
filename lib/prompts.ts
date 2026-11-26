@@ -1,6 +1,6 @@
-// Prompt library (Phase 5). All 38,950 prompts are original, written for
-// Indian beginners in plain English. 950 are free on the site (25 per
-// category); 38,000 more are in the paid packs (1,000 per category). They are NEUTRAL: each one works in
+// Prompt library (Phase 5). All 39,975 prompts are original, written for
+// Indian beginners in plain English. 975 are free on the site (25 per
+// category); 39,000 more are in the paid packs (1,000 per category). They are NEUTRAL: each one works in
 // any AI chat tool (ChatGPT, Claude, Gemini, Copilot and others). Nothing
 // here was copied from any other prompt site.
 
@@ -46,6 +46,7 @@ export const PROMPT_CATEGORIES: PromptCategory[] = [
   { slug: "vehicles", label: "Vehicles & Driving", emoji: "🚗", blurb: "Buying, driving and maintaining a car or bike in India.", caption: "Drive with confidence." },
   { slug: "weddings", label: "Weddings & Events", emoji: "💍", blurb: "Planning weddings and family functions, step by step.", caption: "Your big day, planned calmly." },
   { slug: "elder-care", label: "Elder Care", emoji: "👴", blurb: "Caring for elderly parents and grandparents at home.", caption: "Care that shows love." },
+  { slug: "productivity", label: "Productivity & Habits", emoji: "⏰", blurb: "Focus, routines and getting things done without stress.", caption: "Get more done, with less stress." },
 ];
 
 export function getPromptCategory(slug: string): PromptCategory | undefined {
@@ -114,6 +115,7 @@ import { SHOPPING_PROMPTS } from "./prompts-data/shopping";
 import { VEHICLES_PROMPTS } from "./prompts-data/vehicles";
 import { WEDDINGS_PROMPTS } from "./prompts-data/weddings";
 import { ELDER_CARE_PROMPTS } from "./prompts-data/elder-care";
+import { PRODUCTIVITY_PROMPTS } from "./prompts-data/productivity";
 
 export const PROMPTS: Prompt[] = [
   ...ART_PROMPTS,
@@ -154,6 +156,7 @@ export const PROMPTS: Prompt[] = [
   ...VEHICLES_PROMPTS,
   ...WEDDINGS_PROMPTS,
   ...ELDER_CARE_PROMPTS,
+  ...PRODUCTIVITY_PROMPTS,
 ];
 
 // Free prompts only (25 per category, IDs 1-25). Defined after PROMPTS so the
