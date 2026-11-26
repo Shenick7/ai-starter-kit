@@ -4,7 +4,7 @@ export type PromptCategory = {
   emoji: string;
   blurb: string;
   // One catchy caption under the category title on the prompts page.
-  // TODO (Shenick): send the 13 captions; add each one as caption: "...".
+  // All 38 captions are set (13 by Shenick's answers, 25 written by Muse).
   caption?: string;
 };
 
